@@ -1,12 +1,16 @@
 (function(window, document, undefined) {
   const jQueryScript = document.createElement('script');
 
-  let initialize = function(test='thing') {
-    console.log(test);
+  let initialize = function() {
+    console.log('Loaded!', jQuery, $.fn.jquery);
   }
 
-  jQueryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js';
-  jQueryScript.type = 'text/javascript';
-  jQueryScript.onload = initialize;
-  document.body.appendChild(jQueryScript);
+  let getjQuery = function() {
+    jQueryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js';
+    jQueryScript.type = 'text/javascript';
+    jQueryScript.onload = initialize;
+    document.body.appendChild(jQueryScript);
+  }
+
+  getjQuery();
 })(window, document, undefined);

@@ -1,3 +1,6 @@
 [submodule "lib/Chester"]
 	path = lib/Chester
 	url = https://github.com/markirby/Chester-Wordpress-MVC-Theme-Framework.git
+[submodule "lib/foundation"]
+	path = lib/foundation
+	url = https://github.com/zurb/foundation-sites.git

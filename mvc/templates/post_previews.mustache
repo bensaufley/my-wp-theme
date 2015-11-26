@@ -1,7 +1,12 @@
 {{#posts}}
-  <h2><a href="{{permalink}}">{{{title}}}</a></h2>
-  <time>{{time}}</time>
-  {{{excerpt}}}
+  <article>
+    <header>
+      <h2><a href="{{permalink}}">{{{title}}}</a></h2>
+      <time>{{time}}</time>
+      {{> tags}}
+    </header>
+    {{{excerpt}}}
+  </article>
 {{/posts}}
 <nav>
   {{#previous_posts_link}}{{{previous_posts_link}}}{{/previous_posts_link}}

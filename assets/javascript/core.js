@@ -1,19 +1,19 @@
 'use strict';
 
-(function (window, document, undefined) {
-  var jQueryScript = document.createElement('script');
+var getScript = function getScript(URL, callback) {
+  var newScript = document.createElement('script');
+  newScript.src = URL;
+  newScript.type = 'text/javascript';
+  if (typeof callback == 'function') newScript.onload = callback;
+  document.body.appendChild(newScript);
+};
+
+(function (window, document, undefined, getScript) {
 
   var initialize = function initialize() {
     console.log('Loaded!', jQuery, $.fn.jquery);
   };
 
-  var getjQuery = function getjQuery() {
-    jQueryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js';
-    jQueryScript.type = 'text/javascript';
-    jQueryScript.onload = initialize;
-    document.body.appendChild(jQueryScript);
-  };
-
-  getjQuery();
-})(window, document, undefined);
+  getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js', initialize);
+})(window, document, undefined, getScript);
 //# sourceMappingURL=core.js.map

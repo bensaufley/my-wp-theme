@@ -1,16 +1,16 @@
-(function(window, document, undefined) {
-  const jQueryScript = document.createElement('script');
+const getScript = function(URL, callback) {
+  const newScript = document.createElement('script');
+  newScript.src = URL;
+  newScript.type = 'text/javascript';
+  if (typeof callback == 'function') newScript.onload = callback;
+  document.body.appendChild(newScript);
+};
+
+(function(window, document, undefined, getScript) {
 
   let initialize = function() {
     console.log('Loaded!', jQuery, $.fn.jquery);
   }
 
-  let getjQuery = function() {
-    jQueryScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js';
-    jQueryScript.type = 'text/javascript';
-    jQueryScript.onload = initialize;
-    document.body.appendChild(jQueryScript);
-  }
-
-  getjQuery();
-})(window, document, undefined);
+  getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js', initialize);
+})(window, document, undefined, getScript);

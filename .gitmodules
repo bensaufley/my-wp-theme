@@ -1,0 +1,3 @@
+[submodule "lib/Chester"]
+	path = lib/Chester
+	url = https://github.com/markirby/Chester-Wordpress-MVC-Theme-Framework.git
